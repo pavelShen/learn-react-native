@@ -9,10 +9,12 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
-import Banana from './src/component/test1.js'
+import TestNav from './src/router/main.js'
+import Test from './src/component/fetch.js'
 
 const instructions = Platform.select({
   ios: '---Press Cmd+R to reload,\n' +
@@ -21,10 +23,14 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+export default class App extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
     return (
       <View style={styles.container}>
+        <TestNav></TestNav>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
@@ -34,7 +40,7 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-        <Banana />
+        <Test />
       </View>
     );
   }
@@ -43,8 +49,6 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
